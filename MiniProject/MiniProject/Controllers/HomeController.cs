@@ -40,7 +40,8 @@ namespace MiniProject.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            TheWord word = TheWord.Generate();
+            TheWord word = new TheWord();
+            word = word.Generate();
             return View(word);
         }
 

@@ -18,9 +18,11 @@ namespace MiniProject.Models
 
         static string[] list =
         {
-            "http://foaas.com/bag/JamesChurchill", "http://foaas.com/family/JamesChurchill", "http://foaas.com/flying/JamesChurchill",
-            "http://foaas.com/horse/JamesChurchill", "http://foaas.com/no/JamesChurchill", "http://foaas.com/rtfm/JamesChurchill",
-            "http://foaas.com/tucker/JamesChurchill", "http://foaas.com/zero/JamesChurchill"
+            "http://foaas.com/bag/JamesChurchill", "http://foaas.com/family/JamesChurchill", "http://foaas.com/flying/JamesChurchill"
+            ,"http://foaas.com/horse/JamesChurchill", "http://foaas.com/no/JamesChurchill", "http://foaas.com/rtfm/JamesChurchill",
+            "http://foaas.com/tucker/JamesChurchill", "http://foaas.com/zero/JamesChurchill","http://foaas.com/shit/JamesChurchill",
+            "http://foaas.com/single/JamesChurchill", "http://foaas.com/sake/JamesChurchill", "http://foaas.com/question/JamesChurchill",
+            "http://foaas.com/programmer/JamesChurchill"
         };
 
         string[] userList =

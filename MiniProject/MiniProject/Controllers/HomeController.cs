@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MiniProject.Extensions;
 
 namespace MiniProject.Controllers
 {
@@ -22,7 +23,11 @@ namespace MiniProject.Controllers
 
         public ActionResult Landing()
         {
-            ViewBag.Message = "Hello";
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.Message = "Hello " + User.Identity.GetUserFirstName();
 
             return View();
         }

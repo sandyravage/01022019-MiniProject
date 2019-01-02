@@ -1,0 +1,11 @@
+﻿
+@model MiniProject.Models.TheWord
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <img style="height:100%; width:100%; top:0; left:0; z-index:-2; position:relative;" src="~/Content/james.jpg" />
+
+    <div style="width:30%; height:10%; bottom:10%; right:10%; position:absolute; background:white; border-radius:10px; vertical-align:middle; text-align:center;"><p style="padding-top:15px; padding-bottom:10px;">@Model.Message.Substring(0, Model.Message.Length - 1) - James Churchill<p></p></div>
+</div>

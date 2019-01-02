@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MiniProject.Extensions;
+using MiniProject.Models;
 
 namespace MiniProject.Controllers
 {
@@ -30,6 +31,17 @@ namespace MiniProject.Controllers
             ViewBag.Message = "Hello " + User.Identity.GetUserFirstName();
 
             return View();
+        }
+
+        public ActionResult FuPage()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            TheWord word = TheWord.Generate();
+            return View(word);
         }
 
     }

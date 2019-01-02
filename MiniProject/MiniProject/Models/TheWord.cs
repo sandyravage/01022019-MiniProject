@@ -14,14 +14,14 @@ namespace MiniProject.Models
         public string Subtitle { get; set; }
         const string useragent = "Mozilla / 5.0(Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
 
-        string[] list =
+        static string[] list =
         {
-            "http://foaas.com/bag/:JamesChurchill", "http://foaas.com/family/:JamesChurchill", "http://foaas.com/flying/:from"
-            ,"http://foaas.com/horse/:JamesChurchill", "http://foaas.com/no/:JamesChurchill", "http://foaas.com/rtfm/:JamesChurchill",
-            "http://foaas.com/tucker/:JamesChurchill", "http://foaas.com/zero/:JamesChurchill"
+            "http://foaas.com/bag/JamesChurchill", "http://foaas.com/family/JamesChurchill", "http://foaas.com/flying/JamesChurchill"
+            ,"http://foaas.com/horse/JamesChurchill", "http://foaas.com/no/JamesChurchill", "http://foaas.com/rtfm/JamesChurchill",
+            "http://foaas.com/tucker/JamesChurchill", "http://foaas.com/zero/JamesChurchill"
         };
 
-    public TheWord Generate()
+        public static TheWord Generate()
         {
             Random r = new Random();
             string t = list[r.Next(list.Length)];

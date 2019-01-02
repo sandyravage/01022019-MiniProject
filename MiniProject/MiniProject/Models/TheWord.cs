@@ -16,13 +16,11 @@ namespace MiniProject.Models
         public string Subtitle { get; set; }
         const string useragent = "Mozilla / 5.0(Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
 
-        string[] list =
+        static string[] list =
         {
-            "http://foaas.com/bag/JamesChurchill", "http://foaas.com/family/JamesChurchill", "http://foaas.com/flying/JamesChurchill"
-            ,"http://foaas.com/horse/JamesChurchill", "http://foaas.com/no/JamesChurchill", "http://foaas.com/rtfm/:JamesChurchill",
-            "http://foaas.com/tucker/JamesChurchill", "http://foaas.com/zero/JamesChurchill","http://foaas.com/shit/JamesChurchill",
-            "http://foaas.com/single/JamesChurchill", "http://foaas.com/sake/JamesChurchill", "http://foaas.com/question/JamesChurchill",
-            "http://foaas.com/programmer/JamesChurchill"
+            "http://foaas.com/bag/JamesChurchill", "http://foaas.com/family/JamesChurchill", "http://foaas.com/flying/JamesChurchill",
+            "http://foaas.com/horse/JamesChurchill", "http://foaas.com/no/JamesChurchill", "http://foaas.com/rtfm/JamesChurchill",
+            "http://foaas.com/tucker/JamesChurchill", "http://foaas.com/zero/JamesChurchill"
         };
 
         string[] userList =

@@ -22,7 +22,7 @@ namespace MiniProject.Controllers
 
         public ActionResult Landing()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Hello";
 
             return View();
         }

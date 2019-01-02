@@ -4,7 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using MiniProject.Extensions;
 using Newtonsoft.Json.Linq;
+
 
 namespace MiniProject.Models
 {
@@ -16,15 +18,30 @@ namespace MiniProject.Models
 
         static string[] list =
         {
-            "http://foaas.com/bag/JamesChurchill", "http://foaas.com/family/JamesChurchill", "http://foaas.com/flying/JamesChurchill"
-            ,"http://foaas.com/horse/JamesChurchill", "http://foaas.com/no/JamesChurchill", "http://foaas.com/rtfm/JamesChurchill",
+            "http://foaas.com/bag/JamesChurchill", "http://foaas.com/family/JamesChurchill", "http://foaas.com/flying/JamesChurchill",
+            "http://foaas.com/horse/JamesChurchill", "http://foaas.com/no/JamesChurchill", "http://foaas.com/rtfm/JamesChurchill",
             "http://foaas.com/tucker/JamesChurchill", "http://foaas.com/zero/JamesChurchill"
         };
 
-        public static TheWord Generate()
+        string[] userList =
         {
-            Random r = new Random();
-            string t = list[r.Next(list.Length)];
+            "http://foaas.com/look/"+HttpContext.Current.User.Identity.GetUserFirstName()+"/JamesChurchill","http://foaas.com/ing/"+HttpContext.Current.User.Identity.GetUserFirstName()+"/JamesChurchill", "http://foaas.com/gfy/"+HttpContext.Current.User.Identity.GetUserFirstName()+"/:JamesChurchill",
+            "http://foaas.com/equity/"+HttpContext.Current.User.Identity.GetUserFirstName()+"/JamesChurchill", "http://foaas.com/cocksplat/"+HttpContext.Current.User.Identity.GetUserFirstName()+"/JamesChurchill", "http://foaas.com/back/"+HttpContext.Current.User.Identity.GetUserFirstName()+"/JamesChurchill"
+        };
+
+        public TheWord Generate()
+        {
+            string t = "";
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                t = UserChecker();
+            }
+            else
+            {
+                Random r = new Random();
+                t = list[r.Next(0,list.Length)];
+            }
+            
             HttpWebRequest request = WebRequest.CreateHttp(t);
             request.ContentType = "application/json";
             request.Accept = "application/json";
@@ -35,12 +52,20 @@ namespace MiniProject.Models
                 var data = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 if (data == "null")
                     return null;
-                //string data1 = data.Substring(1, data.Length - 2);
                 JObject dataObject = JObject.Parse(data);
                 var mTemp = dataObject.ToObject<TheWord>();
                 return mTemp;
             }
             return null;
+        }
+
+        private string UserChecker()
+        {
+            Random r = new Random();
+            int num = r.Next(0, 2);
+            if (num == 0)
+                return list[r.Next(0, list.Length)];
+            return userList[r.Next(0, userList.Length)];
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MiniProject.Extensions;
 
 namespace MiniProject.Controllers
 {
@@ -20,11 +21,16 @@ namespace MiniProject.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Landing()
         {
-            ViewBag.Message = "Your contact page.";
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            ViewBag.Message = "Hello " + User.Identity.GetUserFirstName();
 
             return View();
         }
+
     }
 }
